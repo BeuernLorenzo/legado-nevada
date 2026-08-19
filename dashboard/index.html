@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#171410">
+
+    <title>Nevada Admin</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.webmanifest"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="assets/images/apple-touch-icon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         DEMO LOGIN
+    ========================== -->
+
+    <section
+        class="login-screen"
+        id="loginScreen"
+    >
+
+        <div class="login-panel">
+
+            <img
+                src="assets/images/logo-nevada-oficial.jpg"
+                alt="Hotel Nevada"
+                class="login-logo"
+            >
+
+            <p class="login-admin-label">
+    ACESSO ADMINISTRATIVO
+</p>
+
+<h1>
+    Nevada
+    <em>Administração.</em>
+</h1>
+
+            <p class="login-description">
+                Visão centralizada da operação, documentos e informações
+                administrativas do Hotel Nevada.
+            </p>
+
+            <button
+                class="login-button"
+                id="demoLogin"
+            >
+                Entrar na demonstração
+            </button>
+
+            <p class="demo-warning">
+                Ambiente demonstrativo. Nenhum dado real do hotel está armazenado.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         APP
+    ========================== -->
+
+    <div
+        class="admin-app"
+        id="adminApp"
+    >
+
+        <!-- SIDEBAR -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+            <div class="sidebar-brand">
+
+                <span class="sidebar-logo">
+                    NEVADA
+                </span>
+
+                <span class="sidebar-sub">
+    Administração
+</span>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+    <!-- OPERAÇÃO -->
+
+    <button class="nav-item active"
+            data-section="visao"
+            data-title="Visão Geral">
+        <span>01</span>
+        Visão Geral
+    </button>
+
+    <button class="nav-item"
+            data-section="reservas"
+            data-title="Reservas">
+        <span>02</span>
+        Reservas
+    </button>
+
+    <button class="nav-item"
+            data-section="hospedes"
+            data-title="Hóspedes">
+        <span>03</span>
+        Hóspedes
+    </button>
+
+    <button class="nav-item"
+            data-section="equipe"
+            data-title="Equipe">
+        <span>04</span>
+        Equipe
+    </button>
+<button class="nav-item"
+        data-section="ponto"
+        data-title="Ponto & Escalas">
+    <span>05</span>
+    Ponto & Escalas
+</button>
+
+    <button class="nav-item"
+            data-section="manutencao"
+            data-title="Manutenção">
+        <span>06</span>
+        Manutenção
+    </button>
+
+    <button class="nav-item"
+            data-section="avaliacoes"
+            data-title="Avaliações">
+        <span>07</span>
+        Avaliações
+    </button>
+
+    <button class="nav-item"
+            data-section="clube"
+            data-title="Clube Nevada">
+        <span>08</span>
+        Clube Nevada
+    </button>
+
+
+    <!-- PROPRIETÁRIA -->
+
+    <div class="owner-nav-title">
+
+        <span>
+            ÁREA DA PROPRIETÁRIA
+        </span>
+
+        <small>
+            ACESSO EXCLUSIVO
+        </small>
+
+    </div>
+
+
+    <button class="nav-item owner-only"
+            data-section="documentos"
+            data-title="Documentos">
+
+        <span>09</span>
+
+        <div class="owner-nav-copy">
+            <strong>Documentos</strong>
+            <small>PRIVADO</small>
+        </div>
+
+    </button>
+
+
+    <button class="nav-item owner-only"
+            data-section="financeiro"
+            data-title="Financeiro">
+
+        <span>10</span>
+
+        <div class="owner-nav-copy">
+            <strong>Financeiro</strong>
+            <small>PRIVADO</small>
+        </div>
+
+    </button>
+
+
+    <button class="nav-item owner-only owner-master"
+            data-section="geral"
+            data-title="Administração Geral">
+
+        <span>11</span>
+
+        <div class="owner-nav-copy">
+            <strong>Administração Geral</strong>
+            <small>TEMPO REAL</small>
+        </div>
+
+    </button>
+
+
+    <button class="nav-item owner-only"
+            data-section="backup"
+            data-title="Backups">
+
+        <span>12</span>
+
+        <div class="owner-nav-copy">
+            <strong>Backups</strong>
+            <small>PRIVADO</small>
+        </div>
+
+    </button>
+
+</nav>
+
+
+            <div class="sidebar-footer">
+
+                <span>
+                    ACESSO
+                </span>
+
+                <strong>
+                    Administração Nevada
+                </strong>
+
+                <button id="logoutButton">
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <main class="admin-main">
+
+            <!-- TOPBAR -->
+
+            <header class="admin-header">
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <p class="eyebrow">
+                        HOTEL NEVADA
+                    </p>
+
+                    <h2 id="pageTitle">
+                        Visão Geral
+                    </h2>
+
+                </div>
+
+                <div class="admin-profile">
+
+                    <div>
+                        <span id="profileRole">
+    Administração
+</span>
+
+<strong>
+    Nevada
+</strong>
+                    </div>
+
+                    <div class="profile-circle">
+                        N
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 VISÃO GERAL
+            ========================== -->
+
+            <section
+                class="admin-section active"
+                id="visao"
+            >
+
+                <div class="welcome-row">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            OPERAÇÃO
+                        </p>
+
+                        <h3>
+                            Tudo que importa,
+                            <em>em um só lugar.</em>
+                        </h3>
+
+                    </div>
+
+                    <div class="current-date">
+                        <span>ATUALIZAÇÃO</span>
+                        <strong id="currentDate"></strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <span>
+                            OCUPAÇÃO HOJE
+                        </span>
+
+                        <strong>
+                            78%
+                        </strong>
+
+                        <p>
+                            Demonstração
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span>
+                            CHECK-INS
+                        </span>
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <p>
+                            previstos hoje
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span>
+                            CHECK-OUTS
+                        </span>
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <p>
+                            previstos hoje
+                        </p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span>
+                            PENDÊNCIAS
+                        </span>
+
+                        <strong>
+                            3
+                        </strong>
+
+                        <p>
+                            precisam de atenção
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- MOVIMENTAÇÃO -->
+
+                    <article class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-label">
+                                    HOJE
+                                </span>
+
+                                <h4>
+                                    Movimentação
+                                </h4>
+                            </div>
+
+                            <button>
+                                Ver reservas
+                            </button>
+
+                        </div>
+
+
+                        <div class="activity-list">
+
+                            <div class="activity">
+
+                                <span class="activity-time">
+                                    11:00
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        Check-out
+                                    </strong>
+
+                                    <p>
+                                        Apartamento 204
+                                    </p>
+                                </div>
+
+                                <span class="status complete">
+                                    Confirmado
+                                </span>
+
+                            </div>
+
+
+                            <div class="activity">
+
+                                <span class="activity-time">
+                                    14:00
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        Check-in
+                                    </strong>
+
+                                    <p>
+                                        Família Almeida
+                                    </p>
+                                </div>
+
+                                <span class="status pending">
+                                    Aguardando
+                                </span>
+
+                            </div>
+
+
+                            <div class="activity">
+
+                                <span class="activity-time">
+                                    15:30
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        Check-in
+                                    </strong>
+
+                                    <p>
+                                        Casal Martins
+                                    </p>
+                                </div>
+
+                                <span class="status pending">
+                                    Aguardando
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DOCUMENTOS -->
+
+                    <article class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-label">
+                                    NUVEM
+                                </span>
+
+                                <h4>
+                                    Documentos recentes
+                                </h4>
+                            </div>
+
+                        </div>
+
+
+                        <div class="document-list">
+
+                            <div class="document-row">
+
+                                <div class="document-icon">
+                                    PDF
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Fornecedores — Agosto
+                                    </strong>
+
+                                    <p>
+                                        Financeiro
+                                    </p>
+                                </div>
+
+                                <span>
+                                    Hoje
+                                </span>
+
+                            </div>
+
+
+                            <div class="document-row">
+
+                                <div class="document-icon">
+                                    DOC
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Escala da equipe
+                                    </strong>
+
+                                    <p>
+                                        Funcionários
+                                    </p>
+                                </div>
+
+                                <span>
+                                    Ontem
+                                </span>
+
+                            </div>
+
+
+                            <div class="document-row">
+
+                                <div class="document-icon">
+                                    PDF
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Manutenção elevador
+                                    </strong>
+
+                                    <p>
+                                        Manutenção
+                                    </p>
+                                </div>
+
+                                <span>
+                                    15 ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 OUTRAS SEÇÕES
+            ========================== -->
+
+            <section
+    class="admin-section"
+    id="reservas"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                OPERAÇÃO
+            </p>
+
+            <h3>
+                Reservas & Estadias
+            </h3>
+
+            <p>
+                Entradas, saídas, canais de reserva e situação
+                atual das hospedagens.
+            </p>
+        </div>
+
+        <button class="primary-button">
+            + Nova reserva
+        </button>
+
+    </div>
+
+
+    <div class="mini-stats">
+
+        <article>
+            <span>CHEGADAS HOJE</span>
+            <strong>8</strong>
+        </article>
+
+        <article>
+            <span>SAÍDAS HOJE</span>
+            <strong>5</strong>
+        </article>
+
+        <article>
+            <span>HOSPEDADOS</span>
+            <strong>31</strong>
+        </article>
+
+        <article>
+            <span>OCUPAÇÃO</span>
+            <strong>78%</strong>
+        </article>
+
+    </div>
+
+
+    <div class="data-panel">
+
+        <div class="data-row data-header">
+            <span>HÓSPEDE</span>
+            <span>ACOMODAÇÃO</span>
+            <span>ENTRADA</span>
+            <span>SAÍDA</span>
+            <span>ORIGEM</span>
+            <span>STATUS</span>
+        </div>
+
+        <div class="data-row">
+            <strong>Família Almeida</strong>
+            <span>204</span>
+            <span>18 ago</span>
+            <span>21 ago</span>
+            <span>Direta</span>
+            <span class="status pending">Chega hoje</span>
+        </div>
+
+        <div class="data-row">
+            <strong>Casal Martins</strong>
+            <span>112</span>
+            <span>18 ago</span>
+            <span>20 ago</span>
+            <span>Booking</span>
+            <span class="status pending">Chega hoje</span>
+        </div>
+
+        <div class="data-row">
+            <strong>Ricardo Costa</strong>
+            <span>305</span>
+            <span>17 ago</span>
+            <span>20 ago</span>
+            <span>Direta</span>
+            <span class="status complete">Hospedado</span>
+        </div>
+
+        <div class="data-row">
+            <strong>Ana Beatriz Lima</strong>
+            <span>208</span>
+            <span>16 ago</span>
+            <span>18 ago</span>
+            <span>Telefone</span>
+            <span class="status neutral">Check-out</span>
+        </div>
+
+    </div>
+
+    <p class="demo-data-note">
+        Dados demonstrativos para apresentação.
+    </p>
+
+</section>
+
+
+            <section
+    class="admin-section"
+    id="hospedes"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                RELACIONAMENTO
+            </p>
+
+            <h3>
+                Hóspedes
+            </h3>
+
+            <p>
+                Histórico, preferências e relacionamento
+                com quem escolhe o Nevada.
+            </p>
+        </div>
+
+        <button class="primary-button">
+            + Novo hóspede
+        </button>
+
+    </div>
+
+
+    <div class="guest-grid">
+
+        <article class="guest-card">
+
+            <span class="guest-type">
+                RECORRENTE
+            </span>
+
+            <h4>
+                Família Almeida
+            </h4>
+
+            <p>
+                6 estadias registradas
+            </p>
+
+            <div>
+                <span>Preferência</span>
+                <strong>Quartos com varanda</strong>
+            </div>
+
+            <div>
+                <span>Última estadia</span>
+                <strong>Julho de 2026</strong>
+            </div>
+
+        </article>
+
+
+        <article class="guest-card">
+
+            <span class="guest-type">
+                CLUBE NEVADA
+            </span>
+
+            <h4>
+                Ricardo Costa
+            </h4>
+
+            <p>
+                4 estadias registradas
+            </p>
+
+            <div>
+                <span>Preferência</span>
+                <strong>Andar superior</strong>
+            </div>
+
+            <div>
+                <span>Última estadia</span>
+                <strong>Agosto de 2026</strong>
+            </div>
+
+        </article>
+
+
+        <article class="guest-card">
+
+            <span class="guest-type">
+                NOVO HÓSPEDE
+            </span>
+
+            <h4>
+                Casal Martins
+            </h4>
+
+            <p>
+                Primeira estadia
+            </p>
+
+            <div>
+                <span>Origem</span>
+                <strong>Booking</strong>
+            </div>
+
+            <div>
+                <span>Check-in</span>
+                <strong>Hoje • 15:30</strong>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+            <section
+                class="admin-section"
+                id="documentos"
+            >
+
+                <div class="documents-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            NUVEM NEVADA
+                        </p>
+
+                        <h3>
+                            Documentos
+                        </h3>
+
+                        <p>
+                            Encontre documentos administrativos
+                            em segundos.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-button">
+                        + Novo documento
+                    </button>
+
+                </div>
+
+
+                <div class="folder-grid">
+
+                    <article class="folder-card">
+                        <span>01</span>
+                        <strong>Financeiro</strong>
+                        <p>Notas, pagamentos e relatórios.</p>
+                    </article>
+
+                    <article class="folder-card">
+                        <span>02</span>
+                        <strong>Funcionários</strong>
+                        <p>Cadastros, escalas e arquivos internos.</p>
+                    </article>
+
+                    <article class="folder-card">
+                        <span>03</span>
+                        <strong>Fornecedores</strong>
+                        <p>Contratos e documentos comerciais.</p>
+                    </article>
+
+                    <article class="folder-card">
+                        <span>04</span>
+                        <strong>Licenças</strong>
+                        <p>Documentação e arquivos regulatórios.</p>
+                    </article>
+
+                    <article class="folder-card">
+                        <span>05</span>
+                        <strong>Manutenção</strong>
+                        <p>Histórico técnico e serviços.</p>
+                    </article>
+
+                    <article class="folder-card">
+                        <span>06</span>
+                        <strong>Arquivo histórico</strong>
+                        <p>Memória administrativa do Nevada.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <section
+    class="admin-section"
+    id="financeiro"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                CONTROLE
+            </p>
+
+            <h3>
+                Financeiro
+            </h3>
+
+            <p>
+                Uma visão rápida para reduzir papel,
+                procura e dependência de controles separados.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="financial-grid">
+
+        <article class="financial-card">
+            <span>ENTRADAS DO MÊS</span>
+            <strong>R$ 128.450</strong>
+            <p>Valor demonstrativo</p>
+        </article>
+
+        <article class="financial-card">
+            <span>A RECEBER</span>
+            <strong>R$ 21.870</strong>
+            <p>Valor demonstrativo</p>
+        </article>
+
+        <article class="financial-card">
+            <span>COMPROMISSOS</span>
+            <strong>R$ 34.120</strong>
+            <p>Valor demonstrativo</p>
+        </article>
+
+    </div>
+
+
+    <div class="data-panel">
+
+        <div class="data-row finance-row data-header">
+            <span>DESCRIÇÃO</span>
+            <span>CATEGORIA</span>
+            <span>DATA</span>
+            <span>VALOR</span>
+        </div>
+
+        <div class="data-row finance-row">
+            <strong>Fornecedor café da manhã</strong>
+            <span>Fornecedor</span>
+            <span>18 ago</span>
+            <span>R$ 2.480</span>
+        </div>
+
+        <div class="data-row finance-row">
+            <strong>Reserva direta</strong>
+            <span>Hospedagem</span>
+            <span>18 ago</span>
+            <span>R$ 1.650</span>
+        </div>
+
+        <div class="data-row finance-row">
+            <strong>Manutenção preventiva</strong>
+            <span>Manutenção</span>
+            <span>17 ago</span>
+            <span>R$ 860</span>
+        </div>
+
+    </div>
+
+    <p class="demo-data-note">
+        Valores totalmente demonstrativos.
+    </p>
+
+</section>
+
+
+            <section
+    class="admin-section"
+    id="equipe"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                PESSOAS
+            </p>
+
+            <h3>
+                Equipe & Necessidades
+            </h3>
+
+            <p>
+                Escalas, disponibilidade e pontos que precisam
+                de reforço operacional.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="team-grid">
+
+        <article class="team-card">
+
+            <span class="team-status good">
+                COBERTO
+            </span>
+
+            <h4>
+                Recepção
+            </h4>
+
+            <p>
+                Escala demonstrativa organizada.
+            </p>
+
+        </article>
+
+
+        <article class="team-card">
+
+            <span class="team-status attention">
+                ATENÇÃO
+            </span>
+
+            <h4>
+                Operação gastronômica
+            </h4>
+
+            <p>
+                Necessidade de mão de obra a confirmar
+                com a administração.
+            </p>
+
+        </article>
+
+
+        <article class="team-card">
+
+            <span class="team-status opportunity">
+                OPORTUNIDADE
+            </span>
+
+            <h4>
+                Operação Digital
+            </h4>
+
+            <p>
+                Reservas, relacionamento, website, nuvem
+                e suporte administrativo remoto.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+            <!-- ======================================================
+                 PONTO & ESCALAS
+            ======================================================= -->
+            
+            <section
+                class="admin-section"
+                id="ponto"
+            >
+            
+                <div class="page-heading">
+            
+                    <div>
+            
+                        <p class="eyebrow">
+                            JORNADA & EQUIPE
+                        </p>
+            
+                        <h3>
+                            Ponto & Escalas
+                        </h3>
+            
+                        <p>
+                            Jornada, horários, folgas e ocorrências
+                            organizados em uma única visão.
+                        </p>
+            
+                    </div>
+            
+                    <button
+                        class="primary-button"
+                        id="openPunchTerminal"
+                    >
+                        Abrir Terminal de Ponto
+                    </button>
+            
+                </div>
+            
+            
+                <!-- RESUMO -->
+            
+                <div class="mini-stats">
+            
+                    <article>
+                        <span>EM SERVIÇO</span>
+            
+                        <strong id="employeesWorking">
+                            9
+                        </strong>
+            
+                        <p>
+                            Agora
+                        </p>
+                    </article>
+            
+            
+                    <article>
+                        <span>FOLGA HOJE</span>
+            
+                        <strong>
+                            3
+                        </strong>
+            
+                        <p>
+                            Demonstração
+                        </p>
+                    </article>
+            
+            
+                    <article>
+                        <span>PENDÊNCIAS</span>
+            
+                        <strong>
+                            2
+                        </strong>
+            
+                        <p>
+                            Registros
+                        </p>
+                    </article>
+            
+            
+                    <article>
+                        <span>REGISTROS HOJE</span>
+            
+                        <strong id="todayPunchCount">
+                            0
+                        </strong>
+            
+                        <p>
+                            Neste dispositivo
+                        </p>
+                    </article>
+            
+                </div>
+            
+            
+                <!-- JORNADA DEMONSTRATIVA -->
+            
+                <div class="time-panel">
+            
+                    <div class="time-panel-header">
+            
+                        <div>
+            
+                            <span class="panel-label">
+                                HOJE
+                            </span>
+            
+                            <h4>
+                                Jornada da equipe
+                            </h4>
+            
+                        </div>
+            
+                        <span class="time-demo-label">
+                            DADOS DEMONSTRATIVOS
+                        </span>
+            
+                    </div>
+            
+            
+                    <div class="time-table">
+            
+                        <div class="time-row time-row-header">
+            
+                            <span>FUNCIONÁRIO</span>
+                            <span>ENTRADA</span>
+                            <span>INTERVALO</span>
+                            <span>RETORNO</span>
+                            <span>SAÍDA</span>
+                            <span>HORAS</span>
+                            <span>SITUAÇÃO</span>
+            
+                        </div>
+            
+            
+                        <div class="time-row">
+            
+                            <strong>
+                                Funcionário 01
+                            </strong>
+            
+                            <span>07:02</span>
+                            <span>11:58</span>
+                            <span>12:59</span>
+                            <span>—</span>
+                            <span>6h28</span>
+            
+                            <span class="time-status working">
+                                Em serviço
+                            </span>
+            
+                        </div>
+            
+            
+                        <div class="time-row">
+            
+                            <strong>
+                                Funcionário 02
+                            </strong>
+            
+                            <span>06:57</span>
+                            <span>12:01</span>
+                            <span>13:02</span>
+                            <span>—</span>
+                            <span>6h32</span>
+            
+                            <span class="time-status working">
+                                Em serviço
+                            </span>
+            
+                        </div>
+            
+            
+                        <div class="time-row">
+            
+                            <strong>
+                                Funcionário 03
+                            </strong>
+            
+                            <span>08:04</span>
+                            <span>12:00</span>
+                            <span>13:00</span>
+                            <span>17:07</span>
+                            <span>8h03</span>
+            
+                            <span class="time-status complete">
+                                Jornada concluída
+                            </span>
+            
+                        </div>
+            
+            
+                        <div class="time-row">
+            
+                            <strong>
+                                Funcionário 04
+                            </strong>
+            
+                            <span>—</span>
+                            <span>—</span>
+                            <span>—</span>
+                            <span>—</span>
+                            <span>—</span>
+            
+                            <span class="time-status off">
+                                Folga
+                            </span>
+            
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+            
+                <!-- REGISTROS REAIS DA DEMONSTRAÇÃO -->
+            
+                <div class="recent-punch-panel">
+            
+                    <div class="time-panel-header">
+            
+                        <div>
+            
+                            <span class="panel-label">
+                                TERMINAL NEVADA
+                            </span>
+            
+                            <h4>
+                                Registros recentes
+                            </h4>
+            
+                        </div>
+            
+                        <button
+                            class="secondary-admin-button"
+                            id="refreshPunches"
+                        >
+                            Atualizar
+                        </button>
+            
+                    </div>
+            
+            
+                    <div
+                        class="recent-punch-list"
+                        id="recentPunchList"
+                    >
+            
+                        <div class="empty-punch-state">
+            
+                            <strong>
+                                Nenhum registro realizado ainda.
+                            </strong>
+            
+                            <p>
+                                Abra o Terminal de Ponto e faça um
+                                registro demonstrativo.
+                            </p>
+            
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+            
+                <!-- ESCALA -->
+            
+                <div class="schedule-grid">
+            
+                    <article>
+            
+                        <p class="eyebrow">
+                            PRÓXIMOS DIAS
+                        </p>
+            
+                        <h4>
+                            Escala
+                        </h4>
+            
+                        <div class="schedule-line">
+                            <span>Quarta-feira</span>
+                            <strong>12 em serviço</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>Quinta-feira</span>
+                            <strong>11 em serviço</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>Sexta-feira</span>
+                            <strong>14 em serviço</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>Sábado</span>
+                            <strong>16 em serviço</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>Domingo</span>
+                            <strong>15 em serviço</strong>
+                        </div>
+            
+                    </article>
+            
+            
+                    <article>
+            
+                        <p class="eyebrow">
+                            GESTÃO DE JORNADA
+                        </p>
+            
+                        <h4>
+                            Ocorrências
+                        </h4>
+            
+                        <div class="schedule-line">
+                            <span>01</span>
+                            <strong>Registro incompleto</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>02</span>
+                            <strong>Troca de folga solicitada</strong>
+                        </div>
+            
+                        <div class="schedule-line">
+                            <span>03</span>
+                            <strong>Escala a confirmar</strong>
+                        </div>
+            
+                    </article>
+            
+                </div>
+            
+            
+                <p class="legal-demo-note">
+                    Ambiente demonstrativo. A implantação como sistema oficial
+                    de controle de jornada deverá ser validada e configurada
+                    conforme as exigências legais aplicáveis.
+                </p>
+            
+            </section>
+
+
+
+            <section
+    class="admin-section"
+    id="manutencao"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                OPERAÇÃO
+            </p>
+
+            <h3>
+                Manutenção
+            </h3>
+
+            <p>
+                Chamados, histórico e prioridades
+                sem depender de anotações dispersas.
+            </p>
+        </div>
+
+        <button class="primary-button">
+            + Novo chamado
+        </button>
+
+    </div>
+
+
+    <div class="maintenance-list">
+
+        <article>
+            <span class="priority urgent">
+                ALTA
+            </span>
+
+            <div>
+                <h4>
+                    Aquecedor • Apartamento 305
+                </h4>
+
+                <p>
+                    Verificar ruído informado durante funcionamento.
+                </p>
+            </div>
+
+            <strong>
+                Hoje
+            </strong>
+        </article>
+
+
+        <article>
+            <span class="priority normal">
+                NORMAL
+            </span>
+
+            <div>
+                <h4>
+                    Revisão preventiva do elevador
+                </h4>
+
+                <p>
+                    Próxima inspeção programada.
+                </p>
+            </div>
+
+            <strong>
+                22 ago
+            </strong>
+        </article>
+
+
+        <article>
+            <span class="priority low">
+                BAIXA
+            </span>
+
+            <div>
+                <h4>
+                    Pintura área social
+                </h4>
+
+                <p>
+                    Avaliação estética e orçamento.
+                </p>
+            </div>
+
+            <strong>
+                Planejado
+            </strong>
+        </article>
+
+    </div>
+
+</section>
+            <section
+    class="admin-section"
+    id="avaliacoes"
+>
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">REPUTAÇÃO & EXPERIÊNCIA</p>
+            <h3>Avaliações</h3>
+            <p>
+                Leitura executiva da reputação do Nevada: elogios recorrentes,
+                pontos de atenção e sinais que podem virar decisões operacionais.
+            </p>
+        </div>
+
+        <a
+            class="secondary-admin-button review-external-link"
+            href="https://www.booking.com/reviews/br/hotel/nevada.pt-br.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ver avaliações online ↗
+        </a>
+    </div>
+
+    <div class="reputation-summary">
+        <div>
+            <span>BOOKING.COM</span>
+            <strong>9,4</strong>
+            <p>Nota geral • 600+ avaliações</p>
+        </div>
+
+        <div>
+            <span>LOCALIZAÇÃO</span>
+            <strong>9,8</strong>
+            <p>Força mais consistente</p>
+        </div>
+
+        <div>
+            <span>FUNCIONÁRIOS</span>
+            <strong>9,7</strong>
+            <p>Atendimento muito elogiado</p>
+        </div>
+
+        <div>
+            <span>TRIPADVISOR</span>
+            <strong>4,4</strong>
+            <p>260 avaliações • Travellers' Choice</p>
+        </div>
+    </div>
+
+    <div class="review-section-heading">
+        <div>
+            <span class="panel-label">ELOGIOS RECENTES</span>
+            <h4>O que o Nevada já faz muito bem</h4>
+        </div>
+        <p>
+            Amostra pública recente, resumida para leitura operacional.
+            Os textos abaixo são paráfrases, não reproduções integrais.
+        </p>
+    </div>
+
+    <div class="reviews-grid positive-reviews">
+
+        <article class="review-card">
+            <div class="review-top"><span>10 / 10</span><span>13 JUL 2026</span></div>
+            <h4>Celso</h4>
+            <p>
+                Destacou o excelente café da manhã, o conforto do quarto e a
+                localização central. O estacionamento apareceu como único ponto de atenção.
+            </p>
+            <span class="review-source">Booking.com</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-top"><span>10 / 10</span><span>12 JUL 2026</span></div>
+            <h4>Raynara</h4>
+            <p>
+                Avaliou muito bem localização, educação dos funcionários,
+                limpeza do quarto e do banheiro e variedade do café da manhã.
+            </p>
+            <span class="review-source">Booking.com</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-top"><span>10 / 10</span><span>11 JUL 2026</span></div>
+            <h4>Claudete</h4>
+            <p>
+                Citou gentileza da equipe, limpeza, conforto, café da manhã e
+                a conveniência de estar no centro como os principais acertos.
+            </p>
+            <span class="review-source">Booking.com</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-top"><span>10 / 10</span><span>03 JUL 2026</span></div>
+            <h4>Aline</h4>
+            <p>
+                Reforçou a combinação que mais se repete nas avaliações:
+                localização, café da manhã e atendimento.
+            </p>
+            <span class="review-source">Booking.com</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-top"><span>10 / 10</span><span>29 JUN 2026</span></div>
+            <h4>Paloma</h4>
+            <p>
+                Destacou a posição em frente ao Parque Capivari, simpatia da equipe,
+                limpeza, instalações e qualidade do café da manhã.
+            </p>
+            <span class="review-source">Booking.com</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-top"><span>5 / 5</span><span>JUN 2026</span></div>
+            <h4>Helana</h4>
+            <p>
+                Descreveu o hotel como antigo, porém muito limpo e bem cuidado,
+                com equipe atenciosa, excelente localização e bom chuveiro.
+            </p>
+            <span class="review-source">Tripadvisor</span>
+        </article>
+
+    </div>
+
+    <div class="review-insight positive-insight">
+        <span>PADRÃO POSITIVO IDENTIFICADO</span>
+        <strong>Localização + atendimento + café da manhã</strong>
+        <p>
+            A localização é a vantagem mais consistente. Atendimento, limpeza,
+            conforto e café da manhã aparecem repetidamente como fatores que transformam
+            localização em experiência — e não apenas conveniência.
+        </p>
+    </div>
+
+    <div class="review-section-heading attention-heading">
+        <div>
+            <span class="panel-label">PONTOS DE ATENÇÃO</span>
+            <h4>O que merece acompanhamento</h4>
+        </div>
+        <p>
+            Nem todo comentário abaixo corresponde a uma avaliação ruim: são fricções
+            mencionadas por hóspedes recentes e úteis para manutenção preventiva.
+        </p>
+    </div>
+
+    <div class="reviews-grid negative-reviews">
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>ATENÇÃO</span><span>13 JUL 2026</span></div>
+            <h4>Estacionamento</h4>
+            <p>
+                Hóspede apontou distância e trajeto pouco direto entre estacionamento
+                e hotel. O tema reaparece em mais de uma avaliação recente.
+            </p>
+            <span class="review-source">Booking.com • Celso</span>
+        </article>
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>MANUTENÇÃO</span><span>29 JUN 2026</span></div>
+            <h4>Aquecedor</h4>
+            <p>
+                Foi relatado ruído do aquecedor durante a madrugada, apesar da avaliação
+                geral excelente. Sinal simples para manutenção preventiva.
+            </p>
+            <span class="review-source">Booking.com • Daniely</span>
+        </article>
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>EQUIPAMENTO</span><span>28 JUN 2026</span></div>
+            <h4>TV / controle</h4>
+            <p>
+                Um controle de televisão não funcionou e exigiu operação pelo aparelho.
+                Pequeno detalhe que pode ser absorvido por checklist de quartos.
+            </p>
+            <span class="review-source">Booking.com • Mônica</span>
+        </article>
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>ESTRUTURA</span><span>22 JUN 2026</span></div>
+            <h4>Integração do estacionamento</h4>
+            <p>
+                Outro hóspede citou como desvantagem o estacionamento não estar integrado
+                fisicamente ao hotel, reforçando a necessidade de comunicação antecipada.
+            </p>
+            <span class="review-source">Booking.com • Marcelo</span>
+        </article>
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>QUARTO</span><span>12 JUN 2026</span></div>
+            <h4>Iluminação do banheiro</h4>
+            <p>
+                Iluminação do banheiro foi mencionada como ponto de melhoria em uma
+                estadia que elogiou atendimento e localização.
+            </p>
+            <span class="review-source">Booking.com • Rodrigo</span>
+        </article>
+
+        <article class="review-card attention-card">
+            <div class="review-top"><span>MODERNIZAÇÃO</span><span>09 JUN 2026</span></div>
+            <h4>Estrutura antiga</h4>
+            <p>
+                Um hóspede avaliou que o hotel poderia receber modernização, embora tenha
+                considerado a localização imbatível e o custo-benefício positivo.
+            </p>
+            <span class="review-source">Booking.com • Ricardo</span>
+        </article>
+
+        <article class="review-card attention-card major-attention">
+            <div class="review-top"><span>HISTÓRICO</span><span>JUN 2025</span></div>
+            <h4>Experiência inconsistente</h4>
+            <p>
+                Uma avaliação mais crítica reuniu desgaste de acomodação, pouca flexibilidade,
+                atendimento inconsistente, ruído próximo à cozinha, variedade do café e falta
+                de clareza prévia sobre estacionamento. É um comentário antigo, mas útil como
+                checklist de risco operacional.
+            </p>
+            <span class="review-source">Tripadvisor • Nathalia</span>
+        </article>
+
+    </div>
+
+    <div class="review-insight attention-insight">
+        <span>PADRÃO DE ATENÇÃO IDENTIFICADO</span>
+        <strong>Estacionamento + manutenção preventiva + comunicação</strong>
+        <p>
+            O padrão mais acionável não é uma falha central de hospitalidade. São detalhes de
+            infraestrutura e expectativa: informar claramente o estacionamento, antecipar
+            manutenção de equipamentos e modernizar gradualmente sem apagar a identidade histórica.
+        </p>
+    </div>
+
+    <p class="reviews-data-note">
+        Painel demonstrativo montado com avaliações públicas consultadas em Booking.com e
+        Tripadvisor. Em produção, o Nevada Admin poderia consolidar essas fontes automaticamente.
+    </p>
+
+</section>
+
+<section
+    class="admin-section"
+    id="clube"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                FIDELIZAÇÃO
+            </p>
+
+            <h3>
+                Clube Nevada
+            </h3>
+
+            <p>
+                Quem retorna, quem se relaciona e quem
+                pode voltar a escolher o Nevada.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="mini-stats">
+
+        <article>
+            <span>MEMBROS</span>
+            <strong>184</strong>
+        </article>
+
+        <article>
+            <span>RECORRENTES</span>
+            <strong>63</strong>
+        </article>
+
+        <article>
+            <span>ANIVERSÁRIOS</span>
+            <strong>7</strong>
+        </article>
+
+        <article>
+            <span>RETORNOS ESTE MÊS</span>
+            <strong>18</strong>
+        </article>
+
+    </div>
+
+    <p class="demo-data-note">
+        Dados demonstrativos para ilustrar o funcionamento futuro.
+    </p>
+
+</section>
+<section
+    class="admin-section owner-section"
+    id="geral"
+>
+
+    <div
+        class="owner-lock"
+        id="ownerLock"
+    >
+
+        <span class="owner-lock-icon">
+            N
+        </span>
+
+        <p class="eyebrow">
+            ACESSO EXCLUSIVO
+        </p>
+
+        <h3>
+            Administração Geral
+        </h3>
+
+        <p>
+            Esta área é reservada exclusivamente
+            à proprietária do Hotel Nevada.
+        </p>
+
+        <button
+            class="primary-button"
+            id="unlockOwner"
+        >
+            Acessar demonstração da proprietária
+        </button>
+
+    </div>
+
+
+    <div
+        class="owner-dashboard"
+        id="ownerDashboard"
+    >
+
+        <div class="owner-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    CONTROLE EXECUTIVO • TEMPO REAL
+                </p>
+
+                <h3>
+                    Nevada,
+                    <em>em suas mãos.</em>
+                </h3>
+
+            </div>
+
+            <div class="live-indicator">
+                <span></span>
+
+                ATUALIZANDO EM TEMPO REAL
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             CENTRAL DE DECISÕES DA PROPRIETÁRIA
+        =================================================== -->
+        <div class="owner-command-center" id="ownerCommandCenter">
+
+            <div class="owner-command-heading">
+                <div>
+                    <span class="panel-label">DECISÕES & ALERTAS</span>
+                    <h4>O que precisa da senhora agora</h4>
+                </div>
+                <div class="owner-alert-counter">
+                    <strong id="ownerAlertCount">4</strong>
+                    <span>pendências demonstrativas</span>
+                </div>
+            </div>
+
+            <div class="owner-alert-grid">
+
+                <article class="owner-alert-card priority-high" id="alert-equipe">
+                    <div class="owner-alert-top">
+                        <span class="owner-alert-type">EQUIPE • PRIORIDADE</span>
+                        <span class="owner-alert-dot"></span>
+                    </div>
+                    <h5>Operação gastronômica com necessidade de mão de obra</h5>
+                    <p>
+                        Avaliar se o Nevada mantém a operação concentrada no café da manhã
+                        ou inicia recrutamento para ampliar novamente a cozinha.
+                    </p>
+                    <div class="owner-alert-actions">
+                        <button data-go-section="equipe">Ver equipe</button>
+                        <button class="owner-alert-resolve">Marcar como analisado</button>
+                    </div>
+                </article>
+
+                <article class="owner-alert-card priority-medium" id="alert-parking">
+                    <div class="owner-alert-top">
+                        <span class="owner-alert-type">REPUTAÇÃO • RECORRENTE</span>
+                        <span class="owner-alert-dot"></span>
+                    </div>
+                    <h5>Comunicação do estacionamento aparece nas avaliações</h5>
+                    <p>
+                        Recomenda-se informar antes da reserva a localização e o trajeto do
+                        estacionamento, evitando surpresa mesmo quando a estadia é bem avaliada.
+                    </p>
+                    <div class="owner-alert-actions">
+                        <button data-go-section="avaliacoes">Ver avaliações</button>
+                        <button class="owner-alert-resolve">Marcar como analisado</button>
+                    </div>
+                </article>
+
+                <article class="owner-alert-card priority-medium" id="alert-site-info">
+                    <div class="owner-alert-top">
+                        <span class="owner-alert-type">DIGITAL • INFORMAÇÃO</span>
+                        <span class="owner-alert-dot"></span>
+                    </div>
+                    <h5>Informações antigas ainda podem confundir o hóspede</h5>
+                    <p>
+                        Revisar referências antigas ao Vila Chã e alinhar site, concierge e
+                        canais de reserva com a operação real do hotel.
+                    </p>
+                    <div class="owner-alert-actions">
+                        <button data-go-section="visao">Ver visão geral</button>
+                        <button class="owner-alert-resolve">Marcar como analisado</button>
+                    </div>
+                </article>
+
+                <article class="owner-alert-card priority-live" id="alert-punch">
+                    <div class="owner-alert-top">
+                        <span class="owner-alert-type">JORNADA • TEMPO REAL</span>
+                        <span class="owner-alert-dot live"></span>
+                    </div>
+                    <h5 id="ownerLastPunch">Terminal de ponto aguardando novo registro</h5>
+                    <p id="ownerLastPunchMeta">
+                        Ao registrar Entrada, Intervalo, Retorno ou Saída, esta área é atualizada
+                        automaticamente nesta demonstração.
+                    </p>
+                    <div class="owner-alert-actions">
+                        <button data-go-section="ponto">Abrir Ponto & Escalas</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+
+        <div class="owner-kpis">
+
+            <article>
+                <span>OCUPAÇÃO</span>
+                <strong>78%</strong>
+                <p>Hoje</p>
+            </article>
+
+            <article>
+                <span>HÓSPEDES</span>
+                <strong>31</strong>
+                <p>No hotel</p>
+            </article>
+
+            <article>
+                <span>EQUIPE</span>
+                <strong>12</strong>
+                <p>Em operação • demo</p>
+            </article>
+
+            <article>
+                <span>ALERTAS</span>
+                <strong id="ownerKpiAlerts">4</strong>
+                <p>Precisam de decisão</p>
+            </article>
+
+        </div>
+
+
+        <div class="owner-grid">
+
+            <article class="owner-panel">
+
+                <span class="panel-label">
+                    OPERAÇÃO AGORA
+                </span>
+
+                <h4>
+                    Movimento do Nevada
+                </h4>
+
+                <div class="owner-activity">
+
+                    <p>
+                        <strong>14:03</strong>
+                        Check-in confirmado • 204
+                    </p>
+
+                    <p>
+                        <strong>14:12</strong>
+                        Documento adicionado • Financeiro
+                    </p>
+
+                    <p>
+                        <strong>14:27</strong>
+                        Chamado aberto • Manutenção
+                    </p>
+
+                    <p>
+                        <strong>14:31</strong>
+                        Nova reserva direta
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="owner-panel">
+
+                <span class="panel-label">
+                    DECISÕES
+                </span>
+
+                <h4>
+                    Atenção da proprietária
+                </h4>
+
+                <div class="decision-list">
+                    <div><span>01</span>Equipe gastronômica • definição operacional</div>
+                    <div><span>02</span>Estacionamento • comunicação ao hóspede</div>
+                    <div><span>03</span>Website • remover informação desatualizada</div>
+                    <div><span>04</span>Manutenção • checklist preventivo dos quartos</div>
+                </div>
+
+            </article>
+
+
+            <article class="owner-panel owner-notes">
+
+                <span class="panel-label">
+                    NOTAS PRIVADAS
+                </span>
+
+                <h4>
+                    Anotações da proprietária
+                </h4>
+
+                <textarea
+                    placeholder="Escreva uma observação privada..."
+                ></textarea>
+
+            </article>
+
+        </div>
+
+
+        <div class="owner-last-update">
+
+            Última atualização:
+            <strong id="ownerClock"></strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+            <section
+    class="admin-section"
+    id="backup"
+>
+
+    <div class="page-heading">
+
+        <div>
+            <p class="eyebrow">
+                SEGURANÇA
+            </p>
+
+            <h3>
+                Backups
+            </h3>
+
+            <p>
+                Cópias, histórico e integridade
+                da informação administrativa.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="backup-grid">
+
+        <article>
+            <span>DOCUMENTOS</span>
+
+            <strong>
+                Última cópia
+            </strong>
+
+            <p>
+                Hoje • 18:00
+            </p>
+
+            <div class="backup-ok">
+                ✓ Protegido
+            </div>
+        </article>
+
+
+        <article>
+            <span>OPERAÇÃO</span>
+
+            <strong>
+                Última cópia
+            </strong>
+
+            <p>
+                Hoje • 18:00
+            </p>
+
+            <div class="backup-ok">
+                ✓ Protegido
+            </div>
+        </article>
+
+
+        <article>
+            <span>ARQUIVO HISTÓRICO</span>
+
+            <strong>
+                Última verificação
+            </strong>
+
+            <p>
+                17 ago • 23:00
+            </p>
+
+            <div class="backup-ok">
+                ✓ Íntegro
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+        </main>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

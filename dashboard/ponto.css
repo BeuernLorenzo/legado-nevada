@@ -1,0 +1,1046 @@
+/* =========================================================
+   HOTEL NEVADA — TERMINAL DE JORNADA
+   ponto.css
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #171410;
+    color: #f2ebdd;
+
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+button {
+    border: none;
+}
+
+
+body,
+button {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.punch-terminal {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(169, 135, 82, 0.10),
+            transparent 35%
+        ),
+        #171410;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.terminal-header {
+    min-height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    border-bottom:
+        1px solid rgba(242, 235, 221, 0.12);
+
+    background:
+        rgba(23, 20, 16, 0.92);
+
+    backdrop-filter: blur(14px);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.terminal-header > div:first-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.terminal-brand {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+}
+
+
+.terminal-sub {
+    font-size: 8px;
+
+    letter-spacing: 2.4px;
+
+    color:
+        rgba(242, 235, 221, 0.50);
+}
+
+
+/* =========================================================
+   RELÓGIO
+========================================================= */
+
+.terminal-clock {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+}
+
+
+.terminal-clock strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+
+.terminal-clock span {
+    font-size: 9px;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+
+    color: #a98752;
+}
+
+
+/* =========================================================
+   TELAS
+========================================================= */
+
+.terminal-screen {
+    flex: 1;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        70px
+        7vw
+        80px;
+}
+
+
+.terminal-screen.active {
+    display: flex;
+}
+
+
+.terminal-content {
+    width: min(
+        760px,
+        100%
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.terminal-eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 3.5px;
+
+    text-transform: uppercase;
+
+    color: #a98752;
+}
+
+
+.terminal-content h1 {
+    max-width: 720px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            56px,
+            7vw,
+            94px
+        );
+
+    font-weight: 500;
+
+    line-height: 0.92;
+
+    letter-spacing: -1px;
+}
+
+
+.terminal-content h1 em {
+    display: block;
+
+    font-weight: 400;
+
+    color: #c7aa76;
+}
+
+
+.terminal-help {
+    margin-top: 27px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(242, 235, 221, 0.60);
+}
+
+
+/* =========================================================
+   DISPLAY DA MATRÍCULA
+========================================================= */
+
+.pin-display {
+    width: 100%;
+
+    min-height: 100px;
+
+    margin-top: 48px;
+    margin-bottom: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(242, 235, 221, 0.15);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 43px;
+
+    letter-spacing: 16px;
+
+    color: #f2ebdd;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.pin-display.has-value {
+    border-color:
+        rgba(169, 135, 82, 0.55);
+
+    background:
+        rgba(169, 135, 82, 0.045);
+}
+
+
+/* =========================================================
+   TECLADO NUMÉRICO
+========================================================= */
+
+.numeric-keypad {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.numeric-keypad button {
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(242, 235, 221, 0.13);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #f2ebdd;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.numeric-keypad button:hover {
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(199, 170, 118, 0.55);
+}
+
+
+.numeric-keypad button:active {
+    transform: scale(0.97);
+}
+
+
+.numeric-keypad .key-clear {
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(242, 235, 221, 0.60);
+}
+
+
+.numeric-keypad .key-confirm {
+    background: #ebe3d5;
+
+    color: #171410;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.7px;
+}
+
+
+.numeric-keypad .key-confirm:hover {
+    background: #ffffff;
+
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   TEXTO DEMONSTRAÇÃO
+========================================================= */
+
+.terminal-demo {
+    margin-top: 24px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(242, 235, 221, 0.34);
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.back-terminal {
+    margin-bottom: 38px;
+
+    padding: 0;
+
+    background: transparent;
+
+    color:
+        rgba(242, 235, 221, 0.55);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+.back-terminal:hover {
+    color: #c7aa76;
+}
+
+
+/* =========================================================
+   FUNCIONÁRIO
+========================================================= */
+
+.employee-name {
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   AÇÕES DE PONTO
+========================================================= */
+
+.punch-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 48px;
+}
+
+
+.punch-button {
+    min-height: 145px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    text-align: left;
+
+    border:
+        1px solid
+        rgba(242, 235, 221, 0.14);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #f2ebdd;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.punch-button:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(199, 170, 118, 0.58);
+
+    background:
+        rgba(169, 135, 82, 0.055);
+}
+
+
+.punch-button span {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    color: #a98752;
+}
+
+
+.punch-button strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   ÚLTIMO REGISTRO
+========================================================= */
+
+.last-punch {
+    min-height: 0;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(242, 235, 221, 0.11);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(242, 235, 221, 0.50);
+}
+
+
+.last-punch strong {
+    color: #c7aa76;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   OVERLAY DE CONFIRMAÇÃO
+========================================================= */
+
+.confirmation-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(8, 7, 6, 0.88);
+
+    backdrop-filter: blur(14px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+.confirmation-overlay.active {
+    opacity: 1;
+
+    pointer-events: all;
+}
+
+
+/* =========================================================
+   CARD DE CONFIRMAÇÃO
+========================================================= */
+
+.confirmation-card {
+    width:
+        min(
+            500px,
+            100%
+        );
+
+    padding:
+        55px
+        50px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(242, 235, 221, 0.14);
+
+    background: #1d1915;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.45);
+
+    transform:
+        translateY(15px);
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.confirmation-overlay.active
+.confirmation-card {
+    transform:
+        translateY(0);
+}
+
+
+.confirmation-mark {
+    width: 54px;
+    height: 54px;
+
+    margin:
+        0 auto
+        28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #a98752;
+
+    color: #171410;
+
+    font-size: 22px;
+
+    font-weight: 600;
+}
+
+
+.confirmation-card > p {
+    font-size: 9px;
+
+    letter-spacing: 2.4px;
+
+    color: #a98752;
+}
+
+
+.confirmation-card h2 {
+    margin-top: 13px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 49px;
+
+    font-weight: 500;
+}
+
+
+.confirmation-card
+#confirmationTime {
+    display: block;
+
+    margin-top: 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 61px;
+
+    font-weight: 400;
+
+    color: #c7aa76;
+}
+
+
+.confirmation-card
+#confirmationEmployee {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    color:
+        rgba(242, 235, 221, 0.55);
+}
+
+
+.confirmation-card button {
+    width: 100%;
+
+    margin-top: 38px;
+
+    padding: 16px 20px;
+
+    background: #ebe3d5;
+
+    color: #171410;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.confirmation-card button:hover {
+    background: #ffffff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 900px
+) {
+
+    .terminal-header {
+        padding:
+            0
+            5vw;
+    }
+
+
+    .terminal-screen {
+        padding:
+            60px
+            7vw
+            70px;
+    }
+
+
+    .terminal-content {
+        width: min(
+            680px,
+            100%
+        );
+    }
+
+
+    .punch-actions {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR / IPHONE
+========================================================= */
+
+@media (
+    max-width: 620px
+) {
+
+    .terminal-header {
+        min-height: 76px;
+
+        padding:
+            0
+            5vw;
+    }
+
+
+    .terminal-brand {
+        font-size: 24px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .terminal-sub {
+        font-size: 6px;
+
+        letter-spacing: 1.8px;
+    }
+
+
+    .terminal-clock strong {
+        font-size: 22px;
+    }
+
+
+    .terminal-clock span {
+        font-size: 7px;
+    }
+
+
+    .terminal-screen {
+        padding:
+            45px
+            5vw
+            60px;
+    }
+
+
+    .terminal-content h1 {
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                65px
+            );
+    }
+
+
+    .terminal-help {
+        font-size: 14px;
+    }
+
+
+    .pin-display {
+        min-height: 84px;
+
+        margin-top: 35px;
+
+        font-size: 35px;
+
+        letter-spacing: 12px;
+    }
+
+
+    .numeric-keypad {
+        gap: 8px;
+    }
+
+
+    .numeric-keypad button {
+        min-height: 65px;
+
+        font-size: 24px;
+    }
+
+
+    .punch-actions {
+        grid-template-columns:
+            1fr;
+
+        margin-top: 35px;
+    }
+
+
+    .punch-button {
+        min-height: 100px;
+    }
+
+
+    .punch-button strong {
+        font-size: 29px;
+    }
+
+
+    .confirmation-card {
+        padding:
+            45px
+            27px;
+    }
+
+
+    .confirmation-card h2 {
+        font-size: 42px;
+    }
+
+
+    .confirmation-card
+    #confirmationTime {
+        font-size: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO BAIXAS
+   ex.: notebook 1366x768
+========================================================= */
+
+@media (
+    max-height: 760px
+)
+and (
+    min-width: 621px
+) {
+
+    .terminal-header {
+        min-height: 75px;
+    }
+
+
+    .terminal-screen {
+        padding:
+            35px
+            7vw
+            45px;
+    }
+
+
+    .terminal-content h1 {
+        font-size:
+            clamp(
+                50px,
+                6vw,
+                72px
+            );
+    }
+
+
+    .terminal-help {
+        margin-top: 18px;
+    }
+
+
+    .pin-display {
+        min-height: 75px;
+
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+
+    .numeric-keypad button {
+        min-height: 54px;
+    }
+
+
+    .terminal-demo {
+        margin-top: 15px;
+    }
+
+
+    .punch-actions {
+        margin-top: 30px;
+    }
+
+
+    .punch-button {
+        min-height: 110px;
+    }
+
+}
+
+/* =========================================================
+   TERMINAL — AÇÕES PRINCIPAIS DE ENTRADA E SAÍDA
+   Preparado para uso futuro em tablet fixo na parede.
+========================================================= */
+
+.punch-primary {
+    min-height: 175px;
+    border-color: rgba(199,170,118,.38);
+    background: linear-gradient(145deg, rgba(169,135,82,.10), rgba(255,255,255,.025));
+}
+
+.punch-primary strong {
+    font-size: 41px;
+}
+
+.punch-entry::after,
+.punch-exit::after {
+    display: block;
+    margin-top: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: rgba(242,235,221,.46);
+}
+
+.punch-entry::after { content: "INÍCIO DA JORNADA"; }
+.punch-exit::after { content: "ENCERRAR JORNADA"; }
+
+@media (max-width: 620px) {
+    .punch-primary {
+        min-height: 125px;
+    }
+
+    .punch-primary strong {
+        font-size: 34px;
+    }
+}

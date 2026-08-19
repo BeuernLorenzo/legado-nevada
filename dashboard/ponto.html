@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#171410">
+
+    <title>Terminal Nevada</title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="ponto.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="punch-terminal">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <header class="terminal-header">
+
+            <div>
+
+                <span class="terminal-brand">
+                    NEVADA
+                </span>
+
+                <span class="terminal-sub">
+                    REGISTRO DE JORNADA
+                </span>
+
+            </div>
+
+
+            <div class="terminal-clock">
+
+                <strong id="terminalClock">
+                    --:--:--
+                </strong>
+
+                <span id="terminalDate">
+                    --
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             ETAPA 1 — MATRÍCULA
+        ================================================== -->
+
+        <section
+            class="terminal-screen active"
+            id="pinScreen"
+        >
+
+            <div class="terminal-content">
+
+                <p class="terminal-eyebrow">
+                    IDENTIFICAÇÃO
+                </p>
+
+
+                <h1>
+                    Digite sua
+                    <em>matrícula.</em>
+                </h1>
+
+
+                <p class="terminal-help">
+                    Use os números abaixo.
+                </p>
+
+
+                <div
+                    class="pin-display"
+                    id="pinDisplay"
+                >
+                    • • • •
+                </div>
+
+
+                <div class="numeric-keypad">
+
+                    <button data-number="1">1</button>
+                    <button data-number="2">2</button>
+                    <button data-number="3">3</button>
+
+                    <button data-number="4">4</button>
+                    <button data-number="5">5</button>
+                    <button data-number="6">6</button>
+
+                    <button data-number="7">7</button>
+                    <button data-number="8">8</button>
+                    <button data-number="9">9</button>
+
+                    <button
+                        class="key-clear"
+                        id="clearPin"
+                    >
+                        LIMPAR
+                    </button>
+
+                    <button data-number="0">
+                        0
+                    </button>
+
+                    <button
+                        class="key-confirm"
+                        id="confirmPin"
+                    >
+                        OK
+                    </button>
+
+                </div>
+
+
+                <p class="terminal-demo">
+                    Demonstração:
+                    matrículas 1001, 1002 ou 1003.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ETAPA 2 — AÇÕES
+        ================================================== -->
+
+        <section
+            class="terminal-screen"
+            id="actionScreen"
+        >
+
+            <div class="terminal-content">
+
+                <button
+                    class="back-terminal"
+                    id="backToPin"
+                >
+                    ← Trocar funcionário
+                </button>
+
+
+                <p class="terminal-eyebrow">
+                    FUNCIONÁRIO IDENTIFICADO
+                </p>
+
+
+                <h1 class="employee-name">
+                    Olá,
+                    <em id="employeeName">
+                        Funcionário.
+                    </em>
+                </h1>
+
+
+                <p class="terminal-help">
+                    O que deseja registrar?
+                </p>
+
+
+                <div class="punch-actions">
+
+                    <button
+                        class="punch-button punch-primary punch-entry"
+                        data-action="Entrada"
+                    >
+
+                        <span>
+                            01
+                        </span>
+
+                        <strong>
+                            ENTRADA
+                        </strong>
+
+                    </button>
+
+
+                    <button
+                        class="punch-button"
+                        data-action="Intervalo"
+                    >
+
+                        <span>
+                            02
+                        </span>
+
+                        <strong>
+                            INTERVALO
+                        </strong>
+
+                    </button>
+
+
+                    <button
+                        class="punch-button"
+                        data-action="Retorno"
+                    >
+
+                        <span>
+                            03
+                        </span>
+
+                        <strong>
+                            RETORNO
+                        </strong>
+
+                    </button>
+
+
+                    <button
+                        class="punch-button punch-primary punch-exit"
+                        data-action="Saída"
+                    >
+
+                        <span>
+                            04
+                        </span>
+
+                        <strong>
+                            SAÍDA
+                        </strong>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="last-punch"
+                    id="lastPunch"
+                >
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONFIRMAÇÃO
+        ================================================== -->
+
+        <div
+            class="confirmation-overlay"
+            id="confirmationOverlay"
+        >
+
+            <div class="confirmation-card">
+
+                <span class="confirmation-mark">
+                    ✓
+                </span>
+
+
+                <p>
+                    REGISTRO REALIZADO
+                </p>
+
+
+                <h2 id="confirmationAction">
+                    Entrada
+                </h2>
+
+
+                <strong id="confirmationTime">
+                    08:00
+                </strong>
+
+
+                <span id="confirmationEmployee">
+                    Funcionário
+                </span>
+
+
+                <button id="closeConfirmation">
+                    Concluir
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <script src="ponto.js"></script>
+
+</body>
+
+</html>
